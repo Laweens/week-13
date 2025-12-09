@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Greeting Machine</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-right: 5px;
+            font-size: 1rem;
+        }
+
+        input[type="text"] {
+            padding: 2px;
+            width: 150px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 2px 6px;
+            font-family: Arial, sans-serif; /* Buttons usually default to sans-serif */
+            font-size: 13px;
+            cursor: pointer;
+            border: 1px solid #767676;
+            background-color: #efefef;
+            border-radius: 2px;
+        }
+
+        button:active {
+            background-color: #dcdcdc;
+        }
+
+        /* Styling for the result that appears after clicking */
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Magical Greeting Machine!</h1>
+
+    <div class="input-group">
+        <label for="nameInput">Enter your name:</label>
+        <input type="text" id="nameInput">
+    </div>
+
+    <div class="input-group">
+        <label for="magicWordInput">Enter a magical word:</label>
+        <input type="text" id="magicWordInput">
+    </div>
+
+    <button onclick="generateGreeting()">Generate Magical Greeting</button>
+
+    <div id="result"></div>
+
+    <script>
+        function generateGreeting() {
+            // 1. Get the values from the input boxes
+            const name = document.getElementById('nameInput').value;
+            const magicWord = document.getElementById('magicWordInput').value;
+            const resultDiv = document.getElementById('result');
+
+            // 2. Check if the user left the boxes empty
+            if (name.trim() === "" || magicWord.trim() === "") {
+                resultDiv.style.color = "red";
+                resultDiv.innerHTML = "Please enter both your name and a magical word!";
+                return;
+            }
+
+            // 3. Create the magical message
+            const greeting = `✨ Abracadabra! Hello, <strong>${name}</strong>! May your <strong>${magicWord}</strong> wishes come true! ✨`;
+
+            // 4. Display the message
+            resultDiv.style.color = "darkblue"; // Reset color to blue
+            resultDiv.innerHTML = greeting;
+        }
+    </script>
+
+</body>
+</html>
